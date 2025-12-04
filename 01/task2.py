@@ -20,11 +20,9 @@ for value in value_list:
     rest = abs(value) % total_pins
     code += spins
 
-    if ((curr+value) % total_pins) == 0:
-        code +=1
-    
-    if (curr!=0) and (((value < 0) and (rest > curr)) or ((value > 0) and (rest > (total_pins-curr)))):
+    if (curr!=0) and (((value < 0) and (rest >= curr)) or ((value > 0) and (rest >= (total_pins-curr)))):
         code +=1
 
     curr += value
     curr = curr % total_pins
+print(code)
